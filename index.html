@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utkarsh Sharma | Portfolio</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0f172a;
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Background Glowing Blobs with dynamic motion */
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: -1;
+            animation: floatBlob 10s ease-in-out infinite alternate;
+        }
+
+        .circle-1 {
+            width: 400px;
+            height: 400px;
+            background: rgba(99, 102, 241, 0.3);
+            top: 5%;
+            left: 5%;
+        }
+
+        .circle-2 {
+            width: 450px;
+            height: 450px;
+            background: rgba(236, 72, 153, 0.25);
+            bottom: 10%;
+            right: 5%;
+            animation-delay: -5s;
+        }
+
+        @keyframes floatBlob {
+            0% { transform: translateY(0px) scale(1) rotate(0deg); }
+            100% { transform: translateY(-40px) scale(1.12) rotate(15deg); }
+        }
+
+        /* Professional Navbar with glass blur */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            background: linear-gradient(90deg, #a5b4fc, #f472b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: linear-gradient(90deg, #6366f1, #ec4899);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Sections Styling */
+        section {
+            padding: 110px 8% 70px 8%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Hero Section Animations */
+        .hero {
+            text-align: center;
+            align-items: center;
+        }
+
+        .hero h3 {
+            font-size: 18px;
+            color: #a5b4fc;
+            margin-bottom: 12px;
+            font-weight: 500;
+            animation: fadeInDown 1s ease forwards;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease 0.3s forwards;
+            opacity: 0;
+            min-height: 75px;
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: #94a3b8;
+            max-width: 620px;
+            margin-bottom: 35px;
+            line-height: 1.7;
+            animation: fadeInUp 1s ease 0.6s forwards;
+            opacity: 0;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 20px;
+            animation: fadeInUp 1s ease 0.9s forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Advanced Hover Buttons */
+        .btn {
+            padding: 14px 32px;
+            border-radius: 14px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            color: #fff;
+            border: none;
+            box-shadow: 0 10px 25px rgba(236, 72, 153, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(236, 72, 153, 0.6);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: #f472b6;
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(244, 114, 182, 0.2);
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 34px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            text-align: center;
+            background: linear-gradient(90deg, #a5b4fc, #f472b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 0.5px;
+        }
+
+        /* Animated About Section */
+        .about-container {
+            max-width: 950px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.6fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-img-card {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(236, 72, 153, 0.12));
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 24px;
+            padding: 40px 30px;
+            text-align: center;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            transition: transform 0.4s ease, border-color 0.4s ease;
+        }
+
+        .about-img-card:hover {
+            transform: translateY(-8px) rotate(1deg);
+            border-color: #f472b6;
+        }
+
+        .about-img-card i {
+            font-size: 70px;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            animation: bounceIcon 3s ease-in-out infinite;
+        }
+
+        @keyframes bounceIcon {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .about-img-card h4 {
+            font-size: 18px;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .about-text-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .about-text-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(99, 102, 241, 0.4);
+            box-shadow: 0 25px 50px rgba(99, 102, 241, 0.15);
+        }
+
+        .about-text-card p {
+            font-size: 15px;
+            color: #cbd5e1;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .about-highlights {
+            display: flex;
+            gap: 12px;
+            margin-top: 22px;
+            flex-wrap: wrap;
+        }
+
+        .highlight-badge {
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid rgba(99, 102, 241, 0.35);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #a5b4fc;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .highlight-badge:hover {
+            background: #6366f1;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* Interactive Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 25px;
+            max-width: 850px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .skill-item {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px 20px;
+            border-radius: 18px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            backdrop-filter: blur(15px);
+        }
+
+        .skill-item i {
+            font-size: 38px;
+            color: #f472b6;
+            margin-bottom: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-item h4 {
+            font-size: 15px;
+            font-weight: 500;
+            color: #ffffff;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-8px) scale(1.05);
+            border-color: #f472b6;
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 15px 30px rgba(244, 114, 182, 0.2);
+        }
+
+        .skill-item:hover i {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        /* Animated Project Cards */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 950px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 22px;
+            padding: 35px;
+            backdrop-filter: blur(20px);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #6366f1, #ec4899);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(99, 102, 241, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-card h3 {
+            font-size: 21px;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        .project-card p {
+            font-size: 14px;
+            color: #94a3b8;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .project-link {
+            color: #f472b6;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .project-link i {
+            transition: transform 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: #a5b4fc;
+        }
+
+        .project-link:hover i {
+            transform: translateX(6px);
+        }
+
+        /* Contact & Social Section */
+        .contact-content {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .contact-content p {
+            color: #94a3b8;
+            margin-bottom: 30px;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            width: 52px;
+            height: 52px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            font-size: 20px;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-icons a:hover {
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            border-color: transparent;
+            transform: translateY(-6px) scale(1.1);
+            box-shadow: 0 15px 30px rgba(236, 72, 153, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: rgba(15, 23, 42, 0.95);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 38px; }
+            .nav-links { display: none; }
+            .about-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Glowing Background Elements -->
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">Utkarsh Sharma</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- 1. Home / Introduction Section -->
+    <section id="home" class="hero">
+        <h3>Hello, World 👋 I'm</h3>
+        <h1 id="typing-text">Utkarsh Sharma</h1>
+        <p>An aspiring web developer and creative coder crafting modern, aesthetic, and functional web applications with passion.</p>
+        <div class="btn-group">
+            <a href="#projects" class="btn btn-primary">View Projects <i class="fa-solid fa-arrow-down"></i></a>
+            <a href="#contact" class="btn btn-secondary">Get in Touch <i class="fa-solid fa-paper-plane"></i></a>
+        </div>
+    </section>
+
+    <!-- 2. About Me Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-container">
+            <div class="about-img-card">
+                <i class="fa-solid fa-code"></i>
+                <h4>Passionate Coder</h4>
+            </div>
+            <div class="about-text-card">
+                <p>Hello! I am <strong>Utkarsh Sharma</strong>, a dedicated technology enthusiast focused on front-end web development, clean UI design, and interactive applications.</p>
+                <p>I specialize in transforming raw ideas into visually stunning, responsive, and smooth web experiences using HTML, CSS, and JavaScript.</p>
+                <div class="about-highlights">
+                    <span class="highlight-badge">Clean Code</span>
+                    <span class="highlight-badge">Modern UI</span>
+                    <span class="highlight-badge">Problem Solver</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">My Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <i class="fa-brands fa-html5"></i>
+                <h4>HTML5</h4>
+            </div>
+            <div class="skill-item">
+                <i class="fa-brands fa-css3-alt"></i>
+                <h4>CSS3 & UI</h4>
+            </div>
+            <div class="skill-item">
+                <i class="fa-brands fa-js"></i>
+                <h4>JavaScript</h4>
+            </div>
+            <div class="skill-item">
+                <i class="fa-brands fa-git-alt"></i>
+                <h4>Git & GitHub</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div>
+                    <h3>✨ Aesthetic Login Page</h3>
+                    <p>A modern glassmorphism login UI featuring glowing gradient animations and built-in interactive JavaScript username validation.</p>
+                </div>
+                <a href="https://buildwithutkarshh.github.io/My-first-loginpage/" target="_blank" class="project-link">Live Preview <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div>
+                    <h3>🎵 Beatflow Music App</h3>
+                    <p>A clean, creative web music player webpage designed for smooth audio streaming and modern visual vibes.</p>
+                </div>
+                <a href="https://buildwithutkarshh.github.io/Beatflow-webpage/" target="_blank" class="project-link">Live Preview <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Contact Me</h2>
+        <div class="contact-content">
+            <p>Let's connect! Whether you want to collaborate on a project or just say hi, feel free to reach out through my professional handles.</p>
+            <div class="social-icons">
+                <a href="https://github.com/buildwithutkarshh" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/utkarsh-sharma-67086a309" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com/utkxrsshh._" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Utkarsh Sharma. Built with creativity and code.</p>
+    </footer>
+
+    <!-- JavaScript for Cool Typing Effect -->
+    <script>
+        const textElement = document.getElementById('typing-text');
+        const phrases = ["Utkarsh Sharma", "Web Developer", "Creative Coder"];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeEffect() {
+            const currentPhrase = phrases[phraseInd
